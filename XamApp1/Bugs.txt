@@ -1,0 +1,2 @@
+1. (Fixed!!!)Empty text throws exception. In android it crashes the app.
+2. in android pressing back and returning to app does not retain data. however by pressing home button does.

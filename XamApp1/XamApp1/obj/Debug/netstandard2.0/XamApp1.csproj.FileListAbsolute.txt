@@ -1,0 +1,13 @@
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\bin\Debug\netstandard2.0\XamApp1.deps.json
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\bin\Debug\netstandard2.0\XamApp1.dll
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\bin\Debug\netstandard2.0\ref\XamApp1.dll
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\bin\Debug\netstandard2.0\XamApp1.pdb
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\XamApp1.csprojAssemblyReference.cache
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\XamApp1.AssemblyInfoInputs.cache
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\XamApp1.AssemblyInfo.cs
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\XamApp1.dll
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\ref\XamApp1.dll
+C:\Users\Shashwat\source\repos\XamApp1\XamApp1\obj\Debug\netstandard2.0\XamApp1.pdb

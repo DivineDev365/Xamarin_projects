@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			  
+             mc:Ignorable="d"
+             x:Class="OS_simulation.RRPage" BackgroundColor="BlueViolet">
+	<ContentPage.Resources>
+		
+	</ContentPage.Resources>
+    <ContentPage.Content>
+		<ScrollView Orientation="Both">
+			<StackLayout Padding="0,10,0,0">
+				<Label Text="Round Robin" />
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Time Quantum:" HorizontalOptions="Start" Margin="10,0"/>
+					<Entry x:Name="TQEntry" HorizontalOptions="Start"/>
+				</StackLayout>
+				<StackLayout Padding="0,10,0,0" Orientation="Horizontal">
+					<Label Text="Process Number"/>
+					<Label Text="Arrival Time"/>
+					<Label Text="Burst Time"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Process 1:" />
+					<Entry x:Name="P1ATEntry"/>
+					<Entry x:Name="P1CTEntry"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Process 2:" />
+					<Entry x:Name="P2ATEntry"/>
+					<Entry x:Name="P2CTEntry"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Process 3:" />
+					<Entry x:Name="P3ATEntry"/>
+					<Entry x:Name="P3CTEntry"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Process 4:" />
+					<Entry x:Name="P4ATEntry"/>
+					<Entry x:Name="P4CTEntry"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Process 5:" />
+					<Entry x:Name="P5ATEntry"/>
+					<Entry x:Name="P5CTEntry"/>
+				</StackLayout>
+				<StackLayout Padding="0,10,0,0">
+					<Button Text="Find Result" Clicked="FindResultsClicked" WidthRequest="500"/>
+					<Label Text="Results:"/>
+					<StackLayout Orientation="Horizontal">
+						<Label Text="Avg Waiting Time:" />
+						<Label x:Name="AWTDisplay"/>
+					</StackLayout>
+					<StackLayout Orientation="Horizontal">
+						<Label Text="Avg Turn Around Time:" />
+						<Label x:Name="ATTDisplay"/>
+					</StackLayout>
+					<StackLayout Orientation="Horizontal" Padding="10,0,0,30">
+						<Label Text="Gantt Chart: " />
+						<Label x:Name="SeqDisplay"/>
+					</StackLayout>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

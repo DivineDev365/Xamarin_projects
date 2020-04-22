@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="OS_simulation.RRIOPage">
+    <ContentPage.Content>
+		<ScrollView Orientation="Both">
+			<StackLayout BackgroundColor="BlueViolet">
+				<StackLayout>
+				<!--	<Label Text="Round Robin with CPU, I/O Time" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10"/>-->
+
+					<StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+						<Label Text="Time Quantum" HorizontalOptions="Center" Margin="10,0,0,0"/>
+						<Entry x:Name="TQEntry" HorizontalOptions="Start" Margin="10,0,0,0"/>
+					</StackLayout>
+
+					<Label Text="Enter Arrival Times" HorizontalOptions="Start" Margin="10,0"/>
+					<Entry x:Name="ATEntry" Placeholder="e.g - 1,2,4,6,7,3,4,2, ...." HorizontalOptions="Fill" Margin="10,0"/>
+
+					<Label Text="Enter CPU Time" Margin="20,0" HorizontalOptions="Start" />
+					<Entry x:Name="CTEntry" Placeholder="e.g - 1,2,4,6,7,3,4,2, ...." HorizontalOptions="Fill" Margin="10,0"/>
+
+					<Label Text="Enter I/O Time" Margin="20,0" HorizontalOptions="Start" />
+					<Entry x:Name="IOTEntry" Placeholder="e.g - 1,2,4,6,7,3,4,2, ...." HorizontalOptions="Fill" Margin="10,0"/>
+
+					<Label Text="Format: 1,2,4,6,7,3,4,2, ...."/>
+
+					<Button Text="Find Results" Clicked="FindResultsClicked" VerticalOptions="Start" Margin="0,20"/>
+
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Avg Waiting Time:" />
+					<Label x:Name="AWTDisplay"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+					<Label Text="Avg Turn Around Time:" />
+					<Label x:Name="ATTDisplay"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" Padding="10,0,0,30">
+					<Label Text="Gantt Chart(CPU): " />
+					<Label x:Name="SeqDisplay"/>
+				</StackLayout>
+				<StackLayout>
+					<Grid x:Name="ResultGrid">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<!--<ColumnDefinition Width="*"/>-->
+						</Grid.ColumnDefinitions>
+					</Grid>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

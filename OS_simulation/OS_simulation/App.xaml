@@ -27,7 +27,7 @@
 			<Setter Property="FontAttributes" Value="Bold"/>
 			<Setter Property="BackgroundColor" Value="Azure"/>
 			<!--<Setter Property="Behaviors" Value="NumericValidationBehavior"/> Beware of this -->
-			<Setter Property="Keyboard" Value="Numeric"/>
+			<!--<Setter Property="Keyboard" Value="Numeric"/>-->
 			<Setter Property="WidthRequest" Value="50"/>
 		</Style>
 	</Application.Resources>

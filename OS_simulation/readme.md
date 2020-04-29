@@ -1,5 +1,6 @@
 # OS Simulator Application
 Written in Xamarin.Forms for UWP, Android and iOS
+> Check Screenshots folder (iOS are missing beacuse I don't have a mac)
 
 ## CPU Algorithms:
 - Round Robin (Only CPU burst time)

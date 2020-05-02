@@ -32,13 +32,12 @@ namespace OS_simulation
            
 
                 int[] allocation = new int[n];
-			    for (int i = 0; i < allocation.Length; i++)// Initially no block is assigned to any process 
+			    for (int i = 0; i < allocation.Length; i++)
 				    allocation[i] = -1;
 
                 for (int i = 0; i < n; i++)
                 {
-                    // Find the best fit block for 
-                    // current process 
+                   
                     int bestIdx = -1;
                     for (int j = 0; j < m; j++)
                     {
@@ -51,17 +50,14 @@ namespace OS_simulation
                                 bestIdx = j;
                         }
                     }
-                    // If we could find a block for 
-                    // current process 
+                    
                     if (bestIdx != -1)
                     {
 
-                        // allocate block j to p[i]  
-                        // process 
+                        
                         allocation[i] = bestIdx;
 
-                        // Reduce available memory in 
-                        // this block. 
+                        
                         blockSize[bestIdx] -= processSize[i];
                     }
                 }

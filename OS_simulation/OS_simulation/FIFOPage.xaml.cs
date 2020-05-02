@@ -41,48 +41,43 @@ namespace OS_simulation
                 for (int i = 0; i < n; i++)
                 {
                     stopwatch.Start();
-                    // Check if the set can hold more pages  
+                    
                     if (s.Count < capacity)
                     {
-                        // Insert it into set if not present  
-                        // already which represents page fault  
+                        
                         if (!s.Contains(pages[i]))
                         {
                             s.Add(pages[i]);
 
-                            // increment page fault  
+                           
                             page_faults++;
 
-                            // Push the current page into the queue  
+                            
                             indexes.Enqueue(pages[i]);
                         }
                     }
 
-                    // If the set is full then need to perform FIFO  
-                    // i.e. Remove the first page of the queue from  
-                    // set and queue both and insert the current page  
+                   
                     else
                     {
-                        // Check if current page is not already  
-                        // present in the set  
+                        
                         if (!s.Contains(pages[i]))
                         {
-                            //Pop the first page from the queue  
+                            
                             int val = (int)indexes.Peek();
 
                             indexes.Dequeue();
 
-                            // Remove the indexes page  
+                           
                             s.Remove(val);
 
-                            // insert the current page  
+                           
                             s.Add(pages[i]);
 
-                            // push the current page into  
-                            // the queue  
+                         
                             indexes.Enqueue(pages[i]);
 
-                            // Increment page faults  
+                           
                             page_faults++;
                         }
                     }

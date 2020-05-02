@@ -22,15 +22,14 @@ namespace OS_simulation
 
 		public void RoundRobin(String[] p, int[] a, int[] b, int[] iot, int n)
 		{
-			// result of average times 
+			
 			int res = 0;
 			int resc = 0;
 
-			// for sequence storage 
+			
 			String seq = "0";
 			String[] seqlist = new String[a.Length];
-			// copy the burst array and arrival array 
-			// for not effecting the actual array 
+			
 			int[] res_b = new int[b.Length];
 			int[] res_a = new int[a.Length];
 			int[] iostart_t = new int[iot.Length];
@@ -41,13 +40,13 @@ namespace OS_simulation
 				res_a[i] = a[i];
 			}
 
-			// critical time of system 
+			 
 			int t = 0;
 
-			// for store the waiting time 
+			
 			int[] w = new int[p.Length];
 
-			// for store the Completion time 
+			
 			int[] comp = new int[p.Length];
 
 			while (true)
@@ -55,10 +54,9 @@ namespace OS_simulation
 				Boolean flag = true;
 				for (int i = 0; i < p.Length; i++)
 				{
-					// these condition for if 
-					// arrival is not on zero 
+				
 
-					// check that if there come before qtime 
+					 
 					if (res_a[i] <= t)
 					{
 						if (res_a[i] <= n)
@@ -69,7 +67,7 @@ namespace OS_simulation
 								if (res_b[i] > n)
 								{
 
-									// make decrease the b time 
+									
 									t = t + n;
 									res_b[i] = res_b[i] - n;
 									res_a[i] = res_a[i] + n;
@@ -82,14 +80,14 @@ namespace OS_simulation
 									// for last time 
 									t = t + res_b[i];
 
-									// store comp time 
+									
 									comp[i] = t - a[i];
 
-									// store wait time 
+									
 									w[i] = t - b[i] - a[i];
 									res_b[i] = 0;
 
-									// add sequence 
+									
 									seq += "] " + p[i] + " [" + t;
 									seqlist[i] += p[i];
 								}
@@ -97,8 +95,7 @@ namespace OS_simulation
 						}
 						else if (res_a[i] > n)
 						{
-							// is any have less arrival time 
-							// the coming process then execute them 
+							 
 							for (int j = 0; j < p.Length; j++)
 							{
 								// compare 
@@ -127,8 +124,7 @@ namespace OS_simulation
 									}
 								}
 							}
-							// now the previous porcess according to 
-							// ith is process 
+							
 							if (res_b[i] > 0)
 							{
 								flag = false;
@@ -154,7 +150,7 @@ namespace OS_simulation
 							}
 						}
 					}
-					// if no process is come on thse critical 
+					 
 					else if (res_a[i] > t)
 					{
 						t++;
@@ -167,12 +163,11 @@ namespace OS_simulation
 					break;
 				}
 			}
-			//for(int i=0; i<p.Length; i++)
-			//{	iostart_t[i] = w[i] + comp[i];		}
+			
 
 			for (int i = 0; i < p.Length; i++)
 			{
-				//Console.WriteLine(" " + p[i] + "\t" + comp[i] + "\t" + w[i]);z
+				
 				w[i] += iot[i];
 				res = res + w[i];
 				resc = resc + comp[i];

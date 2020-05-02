@@ -19,19 +19,7 @@ namespace OS_simulation
 			this.Title = "About";
 		}
 
-		//public ICommand UrlCommand => new Command<string>(OpenLink);
-		//async void OpenLink(string url)
-		//{
-		//	try
-		//	{
-		//		var link = new Uri(url);
-		//		await Browser.OpenAsync(link, BrowserLaunchMode.SystemPreferred);
-		//	}
-		//	catch
-		//	{
-		//		await DisplayAlert("Error", "Invlid Url", "OK");
-		//	}
-		//}
+		
 
 		async private void OpenLinkedInUrl(object sender, EventArgs e)
 		{

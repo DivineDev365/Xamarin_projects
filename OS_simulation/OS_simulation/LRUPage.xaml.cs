@@ -43,11 +43,11 @@ namespace OS_simulation
 
                 foreach (int i in pageEntries)
                 {
-                    // Insert it into set if not present already which represents page fault  
+                    
                     if (!s.Contains(i))
                     {
                         stopwatch.Start();
-                        // Check if the set can hold equal pages  
+                       
                         if (s.Count == capacity)
                         {
                             s.RemoveAt(0);
@@ -56,17 +56,17 @@ namespace OS_simulation
                         else
                             s.Insert(count, i);
 
-                        // Increment page faults  
+                       
                         page_faults++;
                         ++count;
                         stopwatch.Stop();
                     }
                     else
                     {
-                        // Remove the indexes page  
+                        
                         s.Remove(i);
 
-                        // insert the current page  
+                       
                         s.Insert(s.Count, i);
                     }
                 }

@@ -25,15 +25,15 @@ namespace OS_simulation
 		{
             try
             {
-                int[] blockSize = (BlockSizeEntry.Text).Split(',').Select(y => Convert.ToInt32(y)).ToArray();
-                int[] processSize = (ProcessSizeEntry.Text).Split(',').Select(y => Convert.ToInt32(y)).ToArray();
-                int m = blockSize.Length;
-                int n = processSize.Length;
+                int[] bsize = (BlockSizeEntry.Text).Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+                int[] psize = (ProcessSizeEntry.Text).Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+                int m = bsize.Length;
+                int n = psize.Length;
            
 
-                int[] allocation = new int[n];
-			    for (int i = 0; i < allocation.Length; i++)
-				    allocation[i] = -1;
+                int[] alloted = new int[n];
+			    for (int i = 0; i < alloted.Length; i++)
+				    alloted[i] = -1;
 
                 for (int i = 0; i < n; i++)
                 {
@@ -41,12 +41,12 @@ namespace OS_simulation
                     int bestIdx = -1;
                     for (int j = 0; j < m; j++)
                     {
-                        if (blockSize[j] >= processSize[i])
+                        if (bsize[j] >= psize[i])
                         {
                             if (bestIdx == -1)
                                 bestIdx = j;
-                            else if (blockSize[bestIdx]
-                                           > blockSize[j])
+                            else if (bsize[bestIdx]
+                                           > bsize[j])
                                 bestIdx = j;
                         }
                     }
@@ -55,18 +55,18 @@ namespace OS_simulation
                     {
 
                         
-                        allocation[i] = bestIdx;
+                        alloted[i] = bestIdx;
 
                         
-                        blockSize[bestIdx] -= processSize[i];
+                        bsize[bestIdx] -= psize[i];
                     }
                 }
 
                 for(int i=0; i<n; i++)
                 {
                     var c1 = new Label { Text = (i+1).ToString() };
-                    var c2 = new Label { Text = processSize[i].ToString() };
-                    var c3 = new Label { Text = (allocation[i]+1).ToString() };
+                    var c2 = new Label { Text = psize[i].ToString() };
+                    var c3 = new Label { Text = (alloted[i]+1).ToString() };
 
                     ResultGrid.Children.Add(c1, 0, i);
                     ResultGrid.Children.Add(c2, 1, i);

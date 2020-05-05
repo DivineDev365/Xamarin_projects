@@ -20,7 +20,7 @@ namespace OS_simulation
 			//	NavigationPage.SetHasNavigationBar(this, false);
 		}
 
-		public void RoundRobin(String[] p, int[] a, int[] b, int[] iot, int n)
+		public void RoundRobin(String[] proce, int[] a, int[] b, int[] iot, int n)
 		{
 			
 			int res = 0;
@@ -30,128 +30,128 @@ namespace OS_simulation
 			String seq = "0";
 			String[] seqlist = new String[a.Length];
 			
-			int[] res_b = new int[b.Length];
-			int[] res_a = new int[a.Length];
+			int[] res_y = new int[b.Length];
+			int[] res_x = new int[a.Length];
 			int[] iostart_t = new int[iot.Length];
 
-			for (int i = 0; i < res_b.Length; i++)
+			for (int i = 0; i < res_y.Length; i++)
 			{
-				res_b[i] = b[i];
-				res_a[i] = a[i];
+				res_y[i] = b[i];
+				res_x[i] = a[i];
 			}
 
 			 
 			int t = 0;
 
 			
-			int[] w = new int[p.Length];
+			int[] w = new int[proce.Length];
 
 			
-			int[] comp = new int[p.Length];
+			int[] comp = new int[proce.Length];
 
 			while (true)
 			{
 				Boolean flag = true;
-				for (int i = 0; i < p.Length; i++)
+				for (int i = 0; i < proce.Length; i++)
 				{
 				
 
 					 
-					if (res_a[i] <= t)
+					if (res_x[i] <= t)
 					{
-						if (res_a[i] <= n)
+						if (res_x[i] <= n)
 						{
-							if (res_b[i] > 0)
+							if (res_y[i] > 0)
 							{
 								flag = false;
-								if (res_b[i] > n)
+								if (res_y[i] > n)
 								{
 
 									
 									t = t + n;
-									res_b[i] = res_b[i] - n;
-									res_a[i] = res_a[i] + n;
-									seq += "] " + p[i] + " [" + t;
-									seqlist[i] += p[i];
+									res_y[i] = res_y[i] - n;
+									res_x[i] = res_x[i] + n;
+									seq += "] " + proce[i] + " [" + t;
+									seqlist[i] += proce[i];
 								}
 								else
 								{
 
 									// for last time 
-									t = t + res_b[i];
+									t = t + res_y[i];
 
 									
 									comp[i] = t - a[i];
 
 									
 									w[i] = t - b[i] - a[i];
-									res_b[i] = 0;
+									res_y[i] = 0;
 
 									
-									seq += "] " + p[i] + " [" + t;
-									seqlist[i] += p[i];
+									seq += "] " + proce[i] + " [" + t;
+									seqlist[i] += proce[i];
 								}
 							}
 						}
-						else if (res_a[i] > n)
+						else if (res_x[i] > n)
 						{
 							 
-							for (int j = 0; j < p.Length; j++)
+							for (int j = 0; j < proce.Length; j++)
 							{
 								// compare 
-								if (res_a[j] < res_a[i])
+								if (res_x[j] < res_x[i])
 								{
-									if (res_b[j] > 0)
+									if (res_y[j] > 0)
 									{
 										flag = false;
-										if (res_b[j] > n)
+										if (res_y[j] > n)
 										{
 											t = t + n;
-											res_b[j] = res_b[j] - n;
-											res_a[j] = res_a[j] + n;
-											seq += "] " + p[j] + "[ " + t;
-											seqlist[i] += p[j];
+											res_y[j] = res_y[j] - n;
+											res_x[j] = res_x[j] + n;
+											seq += "] " + proce[j] + "[ " + t;
+											seqlist[i] += proce[j];
 										}
 										else
 										{
-											t = t + res_b[j];
+											t = t + res_y[j];
 											comp[j] = t - a[j];
 											w[j] = t - b[j] - a[j];
-											res_b[j] = 0;
-											seq += "] " + p[j] + " [" + t;
-											seqlist[i] += p[j];
+											res_y[j] = 0;
+											seq += "] " + proce[j] + " [" + t;
+											seqlist[i] += proce[j];
 										}
 									}
 								}
 							}
 							
-							if (res_b[i] > 0)
+							if (res_y[i] > 0)
 							{
 								flag = false;
 
 								// Check for greaters 
-								if (res_b[i] > n)
+								if (res_y[i] > n)
 								{
 									t = t + n;
-									res_b[i] = res_b[i] - n;
-									res_a[i] = res_a[i] + n;
-									seq += "] " + p[i] + " [" + t;
-									seqlist[i] += p[i];
+									res_y[i] = res_y[i] - n;
+									res_x[i] = res_x[i] + n;
+									seq += "] " + proce[i] + " [" + t;
+									seqlist[i] += proce[i];
 								}
 								else
 								{
-									t = t + res_b[i];
+									t = t + res_y[i];
 									comp[i] = t - a[i];
 									w[i] = t - b[i] - a[i];
-									res_b[i] = 0;
-									seq += "] " + p[i] + " [" + t;
-									seqlist[i] += p[i];
+									res_y[i] = 0;
+									seq += "] " + proce[i] + " [" + t;
+									seqlist[i] += proce[i];
 								}
 							}
 						}
 					}
 					 
-					else if (res_a[i] > t)
+					else if (res_x[i] > t)
 					{
 						t++;
 						i--;
@@ -165,7 +165,7 @@ namespace OS_simulation
 			}
 			
 
-			for (int i = 0; i < p.Length; i++)
+			for (int i = 0; i < proce.Length; i++)
 			{
 				
 				w[i] += iot[i];
@@ -173,10 +173,10 @@ namespace OS_simulation
 				resc = resc + comp[i];
 			}
 
-			AWTDisplay.Text = ((double)res / p.Length).ToString();
-			ATTDisplay.Text = ((float)resc / p.Length).ToString();
+			AWTDisplay.Text = ((double)res / proce.Length).ToString();
+			ATTDisplay.Text = ((float)resc / proce.Length).ToString();
 			SeqDisplay.Text = seq;
-			for(int j=1 ;j<p.Length+1; j++)
+			for(int j=1 ;j<proce.Length+1; j++)
 			{
 				var c5 = new Label { Text = w[j - 1].ToString() };
 				//var c6 = new Label { Text = comp[j-1].ToString() };

@@ -30,9 +30,9 @@ namespace OS_simulation
                 int[] pages = (PageEntries.Text).Split(',').Select(y => Convert.ToInt32(y)).ToArray();
                 int n = pages.Length;
                 //await DisplayAlert(pageEntries[0].ToString(), pageEntries[n-1].ToString(), "OK");
-                int capacity = Convert.ToInt32(FSizeEntry.Text);
+                int frames = Convert.ToInt32(FSizeEntry.Text);
 
-                List<int> s = new List<int>(capacity);
+                List<int> s = new List<int>(frames);
                 Queue indexes = new Queue();
                 //int count = 0;
                 int page_faults = 0;
@@ -42,7 +42,7 @@ namespace OS_simulation
                 {
                     stopwatch.Start();
                     
-                    if (s.Count < capacity)
+                    if (s.Count < frames)
                     {
                         
                         if (!s.Contains(pages[i]))
